@@ -9,3 +9,28 @@ func Throw(err error) {
 	}
 }
 ```
+
+Usage
+
+```
+package main
+
+import (
+	"io/ioutil"
+	"os"
+
+	. "github.com/urwork/throw"
+)
+
+func main() {
+	filepath := "test.txt"
+
+	_, err := os.Stat(filepath)
+	Throw(err)
+
+	Throw(ioutil.WriteFile(filepath, []byte("test"), 0644))
+
+}
+```
+
+
